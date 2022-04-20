@@ -130,7 +130,7 @@ class _MyRegisterState extends State<MyRegister> {
                                 child: IconButton(
                                     color: Colors.white,
                                     onPressed: () {
-                                      Navigator.pushNamed(context, 'home');
+                                      Navigator.pushNamed(context, 'bottom_nav');
                                     },
                                     icon: Icon(
                                       Icons.arrow_forward,

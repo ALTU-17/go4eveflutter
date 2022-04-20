@@ -5,9 +5,14 @@ class MyLogin extends StatefulWidget {
 
   @override
   _MyLoginState createState() => _MyLoginState();
+
 }
 
 class _MyLoginState extends State<MyLogin> {
+  bool changeButton = false;
+  String name = "";
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +29,7 @@ class _MyLoginState extends State<MyLogin> {
             Container(
               padding: EdgeInsets.only(left: 35, top: 100),
               child: Text(
-                'Login',
+                "Login $name",
                 style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
@@ -32,22 +37,30 @@ class _MyLoginState extends State<MyLogin> {
               child: Container(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.5),
-                child: Column(
+                child:Form(
+                  child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       margin: EdgeInsets.only(left: 35, right: 35),
                       child: Column(
-                        children: [
-                          TextField(
+                        children:[
+                          TextFormField(
                             style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
                                 fillColor: Colors.black54,
                                 filled: true,
-                                hintText: "Email",
+                                hintText: "Username or Email",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                )),
+                                )
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Username cannot be empty";
+                              }
+                              return null;
+                            },
                           ),
                           SizedBox(
                             height: 30,
@@ -82,7 +95,7 @@ class _MyLoginState extends State<MyLogin> {
                                 child: IconButton(
                                     color: Colors.white,
                                     onPressed: () {
-                                      Navigator.pushNamed(context, 'home');
+                                      Navigator.pushNamed(context, 'bottom_nav');
                                     },
                                     icon: Icon(
                                       Icons.arrow_forward,
@@ -130,6 +143,7 @@ class _MyLoginState extends State<MyLogin> {
                   ],
                 ),
               ),
+              ),
             ),
           ],
         ),
@@ -137,3 +151,204 @@ class _MyLoginState extends State<MyLogin> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+//
+// class MyLogin extends StatefulWidget {
+//   @override
+//   _LoginPageState createState() => _LoginPageState();
+// }
+//
+// class _LoginPageState extends State<MyLogin> {
+//   String name = "";
+//   bool changeButton = false;
+//
+//   final _formKey = GlobalKey<FormState>();
+//
+//   moveToHome(BuildContext context) async {
+//     if (_formKey.currentState!.validate()) {
+//       setState(() {
+//         changeButton = true;
+//       });
+//       await Future.delayed(Duration(seconds: 1));
+//       await Navigator.pushNamed(context, 'bottom_nav');
+//       setState(() {
+//         changeButton = false;
+//       });
+//     }
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Material(
+//         color: Color(0x7412F5C8),
+//         child: SingleChildScrollView(
+//           child: Form(
+//             key: _formKey,
+//             child: Column(
+//
+//               children: [
+//                 Image.asset(
+//                   "assets/images/go_for_event_logo.png",
+//                   fit: BoxFit.cover,
+//                 ),
+//                 SizedBox(
+//                   height: 20.0,
+//                 ),
+//                 Text(
+//                   "Welcome $name",
+//                   style: TextStyle(
+//                     fontSize: 28,
+//                     fontWeight: FontWeight.bold,
+//                   ),
+//                 ),
+//                 SizedBox(
+//                   height: 20.0,
+//                 ),
+//                 Padding(
+//                   padding: const EdgeInsets.symmetric(
+//                       vertical: 16.0, horizontal: 32.0),
+//                   child: Column(
+//                     children: [
+//                       TextFormField(
+//                         decoration: InputDecoration(
+//                           hintText: "Enter username",
+//                           labelText: "Username",
+//                         ),
+//                         validator: (value) {
+//                           if (value!.isEmpty) {
+//                             return "Username cannot be empty";
+//                           }
+//
+//                           return null;
+//                         },
+//                         onChanged: (value) {
+//                           name = value;
+//                           setState(() {});
+//                         },
+//                       ),
+//                       TextFormField(
+//                         obscureText: true,
+//                         decoration: InputDecoration(
+//                           hintText: "Enter password",
+//                           labelText: "Password",
+//                         ),
+//                         validator: (value) {
+//                           if (value!.isEmpty) {
+//                             return "Password cannot be empty";
+//                           } else if (value.length < 6) {
+//                             return "Password length should be atleast 6";
+//                           }
+//
+//                           return null;
+//                         },
+//                       ),
+//                       SizedBox(
+//                         height: 40.0,
+//                       ),
+//                       Material(
+//                         color: Colors.deepPurple,
+//                         borderRadius:
+//                         BorderRadius.circular(changeButton ? 50 : 8),
+//                         child: InkWell(
+//                           onTap: () => moveToHome(context),
+//                           child: AnimatedContainer(
+//                             duration: Duration(seconds: 1),
+//                             width: changeButton ? 50 : 150,
+//                             height: 50,
+//                             alignment: Alignment.center,
+//                             child: changeButton
+//                                 ? Icon(
+//                               Icons.done,
+//                               color: Colors.white,
+//                             )
+//                                 : Text(
+//                               "Login",
+//                               style: TextStyle(
+//                                   color: Colors.white,
+//                                   fontWeight: FontWeight.bold,
+//                                   fontSize: 18),
+//                             ),
+//                           ),
+//                         ),
+//                       ),
+//                       SizedBox(
+//                         height: 15.0,
+//                       ),
+//                       Text(
+//                         "OR",
+//                         style: TextStyle(
+//                             color: Colors.white,
+//                             fontWeight: FontWeight.bold,
+//                             fontSize: 20),
+//                       ),
+//                       SizedBox(
+//                         height: 15.0,
+//                       ),
+//                       Material(
+//                         color: Colors.deepPurple,
+//                         borderRadius:
+//                         BorderRadius.circular(changeButton ? 50 : 8),
+//                         child: InkWell(
+//                           onTap: () {
+//                             Navigator.pushNamed(context, 'register');
+//                           },
+//                           child: AnimatedContainer(
+//                             duration: Duration(seconds: 1),
+//                             width: changeButton ? 50 : 150,
+//                             height: 50,
+//                             alignment: Alignment.center,
+//                             child: changeButton
+//                                 ? Icon(
+//                               Icons.done,
+//                               color: Colors.white,
+//                             )
+//                                 : Text(
+//                               "Merchant",
+//                               style: TextStyle(
+//                                   color: Colors.white,
+//                                   fontWeight: FontWeight.bold,
+//                                   fontSize: 18),
+//
+//                             ),
+//                           ),
+//                         ),
+//                       ),
+//
+//                     ],
+//                   ),
+//                 )
+//               ],
+//             ),
+//           ),
+//         ));
+//   }
+// }

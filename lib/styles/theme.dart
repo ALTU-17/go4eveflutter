@@ -26,7 +26,7 @@ class MyTheme {
       ));
 
   //Colors
-  static Color creamColor = Color(0xffefae0a);
+  static Color creamColor = Color(0xffdea71d);
   static Color darkBluishColor = Color(0xff403b58);
   static const primaryColor = Color(0xff53B175);
   static const darkGrey = Color(0xff7C7C7C);
