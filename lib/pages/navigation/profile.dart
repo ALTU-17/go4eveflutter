@@ -117,7 +117,7 @@ class MapScreenState extends State<Profile>
                                       new Text(
                                         'Parsonal Information',
                                         style: TextStyle(
-                                            color: Colors.white,                                            fontSize: 18.0,
+                                            color: Colors.white,fontSize: 18.0,
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ],

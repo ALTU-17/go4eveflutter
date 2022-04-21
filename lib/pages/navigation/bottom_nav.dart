@@ -41,31 +41,29 @@ class _BottomNavState extends State<BottomNav> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            backgroundColor: CupertinoColors.inactiveGray,
+            backgroundColor: Colors.white10,
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            backgroundColor: CupertinoColors.inactiveGray,
+            backgroundColor: Colors.white10,
             icon: Icon(Icons.add_business_sharp),
             label: 'Bookings',
           ),
           BottomNavigationBarItem(
-            backgroundColor: CupertinoColors.inactiveGray,
+            backgroundColor: Colors.white10,
             icon: Icon(Icons.add),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            backgroundColor: CupertinoColors.inactiveGray,
+            backgroundColor: Colors.white10,
             icon: Icon(Icons.add_a_photo_outlined),
             label: 'Story',
           ),
           BottomNavigationBarItem(
-            backgroundColor: CupertinoColors.inactiveGray,
+            backgroundColor: Colors.white10,
             icon: Icon(Icons.account_circle),
             label: 'Profile',
-
-
           ),
         ],
         currentIndex: _selectedIndex,
